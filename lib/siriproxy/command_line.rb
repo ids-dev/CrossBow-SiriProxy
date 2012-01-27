@@ -172,12 +172,12 @@ class SiriProxy::CommandLine
     else
       branch_opt = @branch ? "-b #{@branch}" : ""
       @branch = "master" if @branch == nil
-      puts "=== Installing latest code from git://github.com/jimmykane/The-Three-Little-Pigs-Siri-Proxy.git [#{@branch}] ==="
+      puts "=== Installing latest code from git://github.com/ids-dev/CrossBow-SiriProxy.git [#{@branch}] ==="
     
       tmp_dir = "/tmp/SiriProxy.install." + (rand 9999).to_s.rjust(4, "0")
     
       `mkdir -p #{tmp_dir}`
-      puts `git clone #{branch_opt} git://github.com/jimmykane/The-Three-Little-Pigs-Siri-Proxy.git #{tmp_dir}`  if $?.exitstatus == 0
+      puts `git clone #{branch_opt} git://github.com/ids-dev/CrossBow-SiriProxy.git #{tmp_dir}`  if $?.exitstatus == 0
       puts "=== Performing Rake Install ===" if $?.exitstatus == 0
       puts `cd #{tmp_dir} && rake install`  if $?.exitstatus == 0
       puts "=== Bundling ===" if $?.exitstatus == 0
